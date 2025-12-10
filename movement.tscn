@@ -499,6 +499,7 @@ graph_offset = Vector2(-172, -15)
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animation_tree")]
+collision_layer = 3
 script = ExtResource("1_2bkep")
 animation_tree = NodePath("AnimationTree")
 
