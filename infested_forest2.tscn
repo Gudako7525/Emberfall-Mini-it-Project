@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dws20jfw2xle0"]
+
+[ext_resource type="PackedScene" uid="uid://dbmula2ch0426" path="res://infested_forest.tscn" id="1_5fhd7"]
+
+[node name="infested_forest" type="Node2D"]
+position = Vector2(490, 81)
+
+[node name="infested_forest" parent="." instance=ExtResource("1_5fhd7")]
