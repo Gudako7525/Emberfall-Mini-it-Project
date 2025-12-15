@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+
 @export var speed : float = 150.0
 @export var sprint_multiplier : float = 3.0
 @export var animation_tree : AnimationTree
@@ -71,3 +72,9 @@ func update_animation_parameters() -> void:
 	animation_tree["parameters/idle/blend_position"] = input
 	animation_tree["parameters/walk/blend_position"] = input
 	
+	
+func Player():
+	pass
+	
+func collect(item):
+	inv.insert(item)

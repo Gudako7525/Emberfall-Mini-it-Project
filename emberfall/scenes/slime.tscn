@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqoks4bidxvgs"]
 
 [ext_resource type="Texture2D" uid="uid://bypjrfxephg3k" path="res://Slime1_Walk_full.png" id="1_2d52u"]
-[ext_resource type="Script" uid="uid://bu8plj6jtm2ko" path="res://slime.gd" id="1_5jc4t"]
+[ext_resource type="Script" uid="uid://bu8plj6jtm2ko" path="res://scripts/slime.gd" id="1_5jc4t"]
 
 [sub_resource type="Animation" id="Animation_5jc4t"]
 resource_name = "new_animation"
