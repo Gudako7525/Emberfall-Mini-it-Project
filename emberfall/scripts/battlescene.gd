@@ -4,7 +4,7 @@ extends Control
 func _ready():
 	# Hide the battle UI elements initially
 	visible = false
-		$background.visible = false
+	$background.visible = false
 	
 	# Connect a custom signal from an event handler to the initialization function
 	event_handler.battle_started.connect(init)
