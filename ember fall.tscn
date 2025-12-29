@@ -2563,7 +2563,7 @@ position = Vector2(298, 86.5)
 
 [node name="Area2D" parent="." instance=ExtResource("7_22b5v")]
 position = Vector2(57, 296.5)
-connected_scene = "infested_forest2"
+connected_scene = "infested forest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -4.25)
