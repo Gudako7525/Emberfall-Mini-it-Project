@@ -1,7 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-
+var health = 100
+var player_alive = true
 @export var speed : float = 150.0
 @export var sprint_multiplier : float = 3.0
 @export var animation_tree : AnimationTree
@@ -39,7 +40,6 @@ func _physics_process(_delta: float) -> void:
 		else:
 			bow_equiped = true	
 	
-	
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
 	
@@ -55,6 +55,12 @@ func _physics_process(_delta: float) -> void:
 		
 	select_animation(is_sprinting)
 	update_animation_parameters()
+	
+	update_health()
+	if health <= 0:
+		player_alive = false
+		health = 0
+		print("Player has been killed")
 
 func select_animation(is_sprinting: bool) -> void:
 	if velocity == Vector2.ZERO:
@@ -78,3 +84,19 @@ func Player():
 	
 func collect(item):
 	inv.insert(item)
+
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+		
+
+func _on_regen_timer_timeout():
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+		if health <= 0:
+			health = 0 
+			

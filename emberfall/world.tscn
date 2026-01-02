@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqlg6nyvot6wg"]
+[gd_scene load_steps=8 format=3 uid="uid://chddrbq2hds0x"]
 
 [ext_resource type="PackedScene" uid="uid://ds5x4sl74uma4" path="res://inventory/items/ember fall.tscn" id="1_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://Solaria Demo Tiles.png" id="2_036b0"]
