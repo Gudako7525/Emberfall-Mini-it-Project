@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dktvk3ivtkdd0"
+path="res://.godot/imported/Midnight Pixels of Avalon.mp3-7cc4f718211b944faddac3f8ebe507b8.mp3str"
+
+[deps]
+
+source_file="res://Midnight Pixels of Avalon.mp3"
+dest_files=["res://.godot/imported/Midnight Pixels of Avalon.mp3-7cc4f718211b944faddac3f8ebe507b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

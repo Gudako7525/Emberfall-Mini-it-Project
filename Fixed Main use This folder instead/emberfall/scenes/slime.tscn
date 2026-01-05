@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqoks4bidxvgs"]
+
+[ext_resource type="Texture2D" uid="uid://bypjrfxephg3k" path="res://Slime1_Walk_full.png" id="1_2d52u"]
+[ext_resource type="Script" uid="uid://bu8plj6jtm2ko" path="res://scripts/slime.gd" id="1_5jc4t"]
+
+[sub_resource type="Animation" id="Animation_5jc4t"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4l1t8"]
+_data = {
+&"left": SubResource("Animation_5jc4t")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4l1t8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jc4t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="slime" type="CharacterBody2D" parent="."]
+script = ExtResource("1_5jc4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="slime"]
+position = Vector2(-4, 0)
+scale = Vector2(1.1428572, 1)
+texture = ExtResource("1_2d52u")
+hframes = 9
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="slime"]
+libraries = {
+&"": SubResource("AnimationLibrary_4l1t8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="slime"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime"]
+shape = SubResource("CircleShape2D_4l1t8")
+
+[node name="BattleTrigger" type="Area2D" parent="slime"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime/BattleTrigger"]
+shape = SubResource("CircleShape2D_5jc4t")
