@@ -1,7 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://8wmsesqoob48"]
+[gd_scene load_steps=63 format=3 uid="uid://8wmsesqoob48"]
 
 [ext_resource type="Script" uid="uid://28cvug00h8e7" path="res://character_body_2d.gd" id="1_2bkep"]
 [ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="2_2bkep"]
+[ext_resource type="Script" uid="uid://d7v8txsfsl7c" path="res://camera_2d.gd" id="3_kne1u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2bkep"]
 radius = 7.0
@@ -526,3 +527,5 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0.91634977)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+script = ExtResource("3_kne1u")
