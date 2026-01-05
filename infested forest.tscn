@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbmula2ch0426"]
+[gd_scene load_steps=16 format=3 uid="uid://dbmula2ch0426"]
 
 [ext_resource type="Texture2D" uid="uid://bu8g3ec51vop" path="res://Ground.png" id="1_h5t2u"]
 [ext_resource type="Texture2D" uid="uid://d3iaxdvuq1jq4" path="res://Objects.png" id="2_sjo0q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dp824as7u5d2m" path="res://tf_darkdimension_sheet.png" id="5_sjo0q"]
 [ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="6_1imek"]
 [ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="7_x6b8j"]
+[ext_resource type="AudioStream" uid="uid://dktvk3ivtkdd0" path="res://Midnight Pixels of Avalon.mp3" id="8_0g040"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g040"]
 texture = ExtResource("1_h5t2u")
@@ -3994,3 +3995,8 @@ connected_scene = "castle"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-4, -5.5)
 shape = SubResource("RectangleShape2D_0g040")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0g040")
+volume_db = -2.862
+autoplay = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hr3gj4anfwix"
+path="res://.godot/imported/Crown of Cloudstone.mp3-475ff1467344df0589a6df4f90a9a671.mp3str"
+
+[deps]
+
+source_file="res://Crown of Cloudstone.mp3"
+dest_files=["res://.godot/imported/Crown of Cloudstone.mp3-475ff1467344df0589a6df4f90a9a671.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
