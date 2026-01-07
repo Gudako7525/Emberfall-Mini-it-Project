@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://cvfm5ixlatvyb"]
+
+[ext_resource type="Script" uid="uid://dmvm83d8f8yxu" path="res://inventory.gd" id="1_kh58p"]
+[ext_resource type="Script" uid="uid://bcg4asx0f4a0g" path="res://inv_slot.gd" id="2_cl5c2"]
+
+[sub_resource type="Resource" id="Resource_vig6f"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_qcpgh"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_11wfs"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://b770x235lubtb"
+
+[sub_resource type="Resource" id="Resource_qyqq4"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_2aqdj"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_r5q4s"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_0sipv"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_tbsvq"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_8mrj2"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_d0e2o"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_54e8i"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[sub_resource type="Resource" id="Resource_86kyl"]
+script = ExtResource("2_cl5c2")
+metadata/_custom_type_script = "uid://bcg4asx0f4a0g"
+
+[resource]
+script = ExtResource("1_kh58p")
+slots = Array[ExtResource("2_cl5c2")]([SubResource("Resource_vig6f"), SubResource("Resource_qcpgh"), SubResource("Resource_11wfs"), SubResource("Resource_qyqq4"), SubResource("Resource_2aqdj"), SubResource("Resource_r5q4s"), SubResource("Resource_0sipv"), SubResource("Resource_tbsvq"), SubResource("Resource_8mrj2"), SubResource("Resource_d0e2o"), SubResource("Resource_54e8i"), SubResource("Resource_86kyl")])

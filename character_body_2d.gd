@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed : float = 300.0
 @export var sprint_multiplier : float = 2.0
 @export var animation_tree : AnimationTree
+@export var inv:Inv
 
 var input : Vector2
 var playback : AnimationNodeStateMachinePlayback
@@ -28,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 
 	select_animation(is_sprinting)
 	update_animation_parameters()
-
+	
 func select_animation(is_sprinting: bool) -> void:
 	if velocity == Vector2.ZERO:
 		playback.travel("idle")
@@ -44,3 +45,9 @@ func update_animation_parameters() -> void:
 	
 	animation_tree["parameters/idle/blend_position"] = input
 	animation_tree["parameters/walk/blend_position"] = input
+	
+func Player():
+	pass
+	
+func collect(item):
+	inv.insert(item)
