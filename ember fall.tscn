@@ -2571,10 +2571,15 @@ connected_scene = "infested forest"
 position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_5nsxp")
 
-[node name="chest" parent="." instance=ExtResource("6_ly7n8")]
-position = Vector2(147.24998, 282.24997)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5nsxp")
 volume_db = -2.862
 autoplay = true
+
+[node name="chest" parent="." instance=ExtResource("6_ly7n8")]
+position = Vector2(96.249985, 295.5)
+scale = Vector2(-0.05592036, 0.056749832)
+
+[node name="chest2" parent="." instance=ExtResource("6_ly7n8")]
+position = Vector2(103.24998, 67.5)
+scale = Vector2(-0.05592036, 0.056749832)
