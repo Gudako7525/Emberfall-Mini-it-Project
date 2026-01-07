@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct4ihk3m8xb15"]
+[gd_scene load_steps=14 format=3 uid="uid://ct4ihk3m8xb15"]
 
 [ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://Solaria Demo Tiles.png" id="1_vm22h"]
 [ext_resource type="Texture2D" uid="uid://dp824as7u5d2m" path="res://tf_darkdimension_sheet.png" id="2_1gkcl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="4_t33uu"]
 [ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="5_231t4"]
 [ext_resource type="AudioStream" uid="uid://hr3gj4anfwix" path="res://Crown of Cloudstone.mp3" id="6_2drs5"]
+[ext_resource type="PackedScene" uid="uid://cfvaap38k4532" path="res://chest.tscn" id="7_7lyqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t33uu"]
 texture = ExtResource("1_vm22h")
@@ -5022,3 +5023,11 @@ shape = SubResource("RectangleShape2D_7lyqe")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2drs5")
 autoplay = true
+
+[node name="chest" parent="." instance=ExtResource("7_7lyqe")]
+position = Vector2(-49.499996, -325.75)
+scale = Vector2(-0.05592036, 0.056749832)
+
+[node name="chest2" parent="." instance=ExtResource("7_7lyqe")]
+position = Vector2(95.250015, -325.75)
+scale = Vector2(-0.05592036, 0.056749832)

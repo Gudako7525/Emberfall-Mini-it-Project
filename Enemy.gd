@@ -5,7 +5,7 @@ var stop_distance = 10.0 # Distance at which the enemy will stop chasing
 var player_chase = false
 var player = null
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player_chase and player != null:
 		var direction = (player.position - position)
 		var distance = direction.length()
