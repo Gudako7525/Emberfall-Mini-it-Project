@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="7_udt1a"]
 [ext_resource type="AudioStream" uid="uid://dktvk3ivtkdd0" path="res://Midnight Pixels of Avalon.mp3" id="8_udt1a"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g040"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udt1a"]
 texture = ExtResource("1_h5t2u")
 2:0/0 = 0
 3:0/0 = 0
@@ -1405,7 +1405,7 @@ texture = ExtResource("1_h5t2u")
 6:34/0 = 0
 7:34/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6wpw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_371o5"]
 texture = ExtResource("2_sjo0q")
 5:0/0 = 0
 6:0/0 = 0
@@ -3208,10 +3208,10 @@ texture = ExtResource("2_sjo0q")
 41:43/0 = 0
 42:43/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh1k3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0ui2"]
 texture = ExtResource("3_1imek")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ih5k1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7jev"]
 texture = ExtResource("4_x6b8j")
 0:0/0 = 0
 1:0/0 = 0
@@ -3583,7 +3583,7 @@ texture = ExtResource("4_x6b8j")
 11:14/0 = 0
 12:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1imek"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipu2"]
 texture = ExtResource("5_sjo0q")
 2:1/0 = 0
 3:1/0 = 0
@@ -3956,11 +3956,11 @@ texture = ExtResource("5_sjo0q")
 
 [sub_resource type="TileSet" id="TileSet_5lk7j"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_0g040")
-sources/1 = SubResource("TileSetAtlasSource_y6wpw")
-sources/2 = SubResource("TileSetAtlasSource_uh1k3")
-sources/3 = SubResource("TileSetAtlasSource_ih5k1")
-sources/4 = SubResource("TileSetAtlasSource_1imek")
+sources/0 = SubResource("TileSetAtlasSource_udt1a")
+sources/1 = SubResource("TileSetAtlasSource_371o5")
+sources/2 = SubResource("TileSetAtlasSource_o0ui2")
+sources/3 = SubResource("TileSetAtlasSource_h7jev")
+sources/4 = SubResource("TileSetAtlasSource_tipu2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_371o5"]
 size = Vector2(15.25, 17.75)
@@ -3986,12 +3986,9 @@ connected_scene = "castle"
 position = Vector2(-592.75, -20.5)
 shape = SubResource("RectangleShape2D_371o5")
 
-[node name="Node2D" parent="." instance=ExtResource("7_udt1a")]
-position = Vector2(-229.5, 253.5)
-
 [node name="Area2D2" parent="." instance=ExtResource("6_2vori")]
 position = Vector2(-102.75, 251.25)
-connected_scene = "ember fall"
+connected_scene = "ember_fall2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-588.25, -23.5)
@@ -4001,3 +3998,6 @@ shape = SubResource("RectangleShape2D_371o5")
 stream = ExtResource("8_udt1a")
 volume_db = -2.862
 autoplay = true
+
+[node name="Node2D" parent="." instance=ExtResource("7_udt1a")]
+position = Vector2(-656.25, 226.25)

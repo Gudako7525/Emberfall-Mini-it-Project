@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjq11vxodnd1d"
-path="res://.godot/imported/closedchestimg.png-3863eb5c14a524c255540baa52d6dcdd.ctex"
+path="res://.godot/imported/closedchestimg.png-be12763d393ff022fa3a41a550eb1362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/closedchestimg.png"
-dest_files=["res://.godot/imported/closedchestimg.png-3863eb5c14a524c255540baa52d6dcdd.ctex"]
+source_file="res://emberfall/art/closedchestimg.png"
+dest_files=["res://.godot/imported/closedchestimg.png-be12763d393ff022fa3a41a550eb1362.ctex"]
 
 [params]
 

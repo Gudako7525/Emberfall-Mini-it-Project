@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckvfnec8twbw4"
-path="res://.godot/imported/Chris Walk.png-7d37bf8203fd6ba3a98befbb6f5a6900.ctex"
+path="res://.godot/imported/Chris Walk.png-44e537e7298a48414a5e383a52be6305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chris Walk.png"
-dest_files=["res://.godot/imported/Chris Walk.png-7d37bf8203fd6ba3a98befbb6f5a6900.ctex"]
+source_file="res://emberfall/Chris Walk.png"
+dest_files=["res://.godot/imported/Chris Walk.png-44e537e7298a48414a5e383a52be6305.ctex"]
 
 [params]
 

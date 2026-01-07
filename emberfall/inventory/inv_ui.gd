@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inv: Inv = preload("res://inventory/playerinv.tres")
+@onready var inv: Inv = preload("res://emberfall/inventory/playerinv.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 

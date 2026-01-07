@@ -1,7 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://8wmsesqoob48"]
+[gd_scene load_steps=63 format=3 uid="uid://8wmsesqoob48"]
 
 [ext_resource type="Script" uid="uid://28cvug00h8e7" path="res://character_body_2d.gd" id="1_2bkep"]
 [ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="2_2bkep"]
+[ext_resource type="PackedScene" uid="uid://cx0d4vnkl1rgs" path="res://emberfall/inventory/inv_ui.tscn" id="3_3cbam"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2bkep"]
 radius = 7.0
@@ -526,3 +527,11 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0.91634977)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Inv_UI" parent="Player" instance=ExtResource("3_3cbam")]
+offset_left = -44.0
+offset_top = -87.0
+offset_right = 49.0
+offset_bottom = -20.0
+
+[node name="Marker2D" type="Marker2D" parent="Player"]

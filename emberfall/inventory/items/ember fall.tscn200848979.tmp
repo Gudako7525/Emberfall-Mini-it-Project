@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvtvd3xa2c7fn"]
+[gd_scene load_steps=9 format=3 uid="uid://ds5x4sl74uma4"]
 
 [ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://emberfall/Solaria Demo Tiles.png" id="1_25ad2"]
 [ext_resource type="Texture2D" uid="uid://brfr8217d5et7" path="res://emberfall/inventory/items/houses.png" id="2_iisqi"]

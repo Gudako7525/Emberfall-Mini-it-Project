@@ -4,13 +4,7 @@ extends Control
 func _ready():
 	# Hide the battle UI elements initially
 	visible = false
-		$background.visible = false
-	
-	# Connect a custom signal from an event handler to the initialization function
-	event_handler.battle_started.connect(init)
-	pass
-
-
+	"res://c50a18008bf3f9aade4d1b6bb5cc5aea.jpg"
 # Initialization function called when the "battle_started" signal is emitted
 func init(character_name, lvl):
 	# Make the battle UI visible

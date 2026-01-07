@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bypjrfxephg3k"
-path="res://.godot/imported/Slime1_Walk_full.png-6c46a01fc2e93653a42420619658eac2.ctex"
+path="res://.godot/imported/Slime1_Walk_full.png-c5cbe95d0f83cdbc65d51928e1a9d2e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Slime1_Walk_full.png"
-dest_files=["res://.godot/imported/Slime1_Walk_full.png-6c46a01fc2e93653a42420619658eac2.ctex"]
+source_file="res://emberfall/Slime1_Walk_full.png"
+dest_files=["res://.godot/imported/Slime1_Walk_full.png-c5cbe95d0f83cdbc65d51928e1a9d2e5.ctex"]
 
 [params]
 

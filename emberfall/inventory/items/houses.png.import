@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brfr8217d5et7"
-path="res://.godot/imported/houses.png-2a84750ef150533f1e824cf781a58c37.ctex"
+path="res://.godot/imported/houses.png-429a32566bdad4820701adaed35824e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/items/houses.png"
-dest_files=["res://.godot/imported/houses.png-2a84750ef150533f1e824cf781a58c37.ctex"]
+source_file="res://emberfall/inventory/items/houses.png"
+dest_files=["res://.godot/imported/houses.png-429a32566bdad4820701adaed35824e0.ctex"]
 
 [params]
 

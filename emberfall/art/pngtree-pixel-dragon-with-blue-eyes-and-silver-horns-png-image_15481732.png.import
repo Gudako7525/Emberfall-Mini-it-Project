@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0bdfqmqmi81k"
-path="res://.godot/imported/unnamed.jpg-72497ada9a9e562285d5ba6f89fe3bd2.ctex"
+uid="uid://cdag1mlnl52mb"
+path="res://.godot/imported/pngtree-pixel-dragon-with-blue-eyes-and-silver-horns-png-image_15481732.png-8b87db1db8d7cfc668d3b9d66cba59ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://emberfall/unnamed.jpg"
-dest_files=["res://.godot/imported/unnamed.jpg-72497ada9a9e562285d5ba6f89fe3bd2.ctex"]
+source_file="res://emberfall/art/pngtree-pixel-dragon-with-blue-eyes-and-silver-horns-png-image_15481732.png"
+dest_files=["res://.godot/imported/pngtree-pixel-dragon-with-blue-eyes-and-silver-horns-png-image_15481732.png-8b87db1db8d7cfc668d3b9d66cba59ff.ctex"]
 
 [params]
 

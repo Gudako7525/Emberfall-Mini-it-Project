@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4t53600oqcia"]
+[gd_scene load_steps=7 format=3 uid="uid://c3y0ti8ygc3th"]
 
-[ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://Solaria Demo Tiles.png" id="1_25ad2"]
-[ext_resource type="Texture2D" uid="uid://bmids5d1jkshe" path="res://art/houses.png" id="2_iisqi"]
-[ext_resource type="PackedScene" uid="uid://bqoks4bidxvgs" path="res://scenes/slime.tscn" id="4_iisqi"]
+[ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://emberfall/Solaria Demo Tiles.png" id="1_25ad2"]
+[ext_resource type="Texture2D" uid="uid://bmids5d1jkshe" path="res://emberfall/art/houses.png" id="2_iisqi"]
+[ext_resource type="PackedScene" uid="uid://bqoks4bidxvgs" path="res://slime.tscn" id="4_iisqi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uw6wf"]
 texture = ExtResource("1_25ad2")

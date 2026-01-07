@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy86vxmqkfcd4"
-path="res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-e351c7e9af353b1b96c21a0c075f55d7.ctex"
+path="res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-6ce7edd576d16ba018c6694e38553db2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Small-8-Direction-Characters_by_AxulArt.png"
-dest_files=["res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-e351c7e9af353b1b96c21a0c075f55d7.ctex"]
+source_file="res://emberfall/Small-8-Direction-Characters_by_AxulArt.png"
+dest_files=["res://.godot/imported/Small-8-Direction-Characters_by_AxulArt.png-6ce7edd576d16ba018c6694e38553db2.ctex"]
 
 [params]
 

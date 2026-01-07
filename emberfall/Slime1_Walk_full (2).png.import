@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0bdfqmqmi81k"
-path="res://.godot/imported/unnamed.jpg-72497ada9a9e562285d5ba6f89fe3bd2.ctex"
+uid="uid://cw0gobxe8uxwp"
+path="res://.godot/imported/Slime1_Walk_full (2).png-49d1a1a70fa813c33bd7c864978b588a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://emberfall/unnamed.jpg"
-dest_files=["res://.godot/imported/unnamed.jpg-72497ada9a9e562285d5ba6f89fe3bd2.ctex"]
+source_file="res://emberfall/Slime1_Walk_full (2).png"
+dest_files=["res://.godot/imported/Slime1_Walk_full (2).png-49d1a1a70fa813c33bd7c864978b588a.ctex"]
 
 [params]
 
