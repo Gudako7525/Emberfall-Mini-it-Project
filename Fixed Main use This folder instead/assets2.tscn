@@ -47,7 +47,7 @@ offset_top = 358.0
 offset_right = 868.0
 offset_bottom = 487.0
 
-[node name="Button" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="AttackButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 46.0
@@ -55,7 +55,7 @@ offset_right = 506.0
 offset_bottom = 83.0
 text = "Attack"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="FleeButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 83.0
@@ -64,7 +64,7 @@ offset_bottom = 129.0
 text = "Flee
 "
 
-[node name="Button3" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="InventoryButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_right = 508.0
@@ -76,7 +76,7 @@ text = "Inventory
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 129.0
-text = "Random AHH SLIME APPEARED"
+text = "Random  SLIME APPEARED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
