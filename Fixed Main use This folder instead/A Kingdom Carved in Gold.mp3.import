@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bapf7wr7e315l"
+path="res://.godot/imported/A Kingdom Carved in Gold.mp3-ebd895bf2b0774d96bceb8db98b1081b.mp3str"
+
+[deps]
+
+source_file="res://A Kingdom Carved in Gold.mp3"
+dest_files=["res://.godot/imported/A Kingdom Carved in Gold.mp3-ebd895bf2b0774d96bceb8db98b1081b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

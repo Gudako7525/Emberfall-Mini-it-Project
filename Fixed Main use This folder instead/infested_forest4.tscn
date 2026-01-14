@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crsmkeaxplbg0"]
+
+[ext_resource type="PackedScene" uid="uid://dbmula2ch0426" path="res://infested_forest.tscn" id="1_flmjj"]
+
+[node name="infested_forest" instance=ExtResource("1_flmjj")]
+
+[node name="Area2D2" parent="." index="4"]
+position = Vector2(-109.25, 246.5)
+
+[node name="Node2D" parent="." index="6"]
+position = Vector2(-231.75, 252.75)

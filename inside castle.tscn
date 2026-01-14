@@ -8628,7 +8628,7 @@ position = Vector2(-3, 14)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 78)
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ilhsv")
 format = 2
 layer_0/y_sort_enabled = true
@@ -8640,14 +8640,14 @@ layer_2/tile_data = PackedInt32Array(-10, 2490369, 28, 65526, 2490369, 29, 13106
 
 [node name="Node2D" parent="." instance=ExtResource("4_lcwnc")]
 position = Vector2(-35, 164)
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 
 [node name="Area2D2" parent="." instance=ExtResource("5_0onaf")]
 position = Vector2(527, 593)
-connected_scene = "castle"
+connected_scene = "castle2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-555, -269)
+position = Vector2(-562, -248)
 shape = SubResource("RectangleShape2D_g8u17")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
