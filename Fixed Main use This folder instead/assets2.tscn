@@ -10,6 +10,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Battlescene" type="Control" parent="CanvasLayer"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -94,3 +95,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Battlescene/Background"]
+
+[connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
