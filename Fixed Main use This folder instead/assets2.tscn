@@ -96,4 +96,23 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Battlescene/Background"]
 
+[node name="PlayerHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 0
+offset_left = 577.0
+offset_top = 298.0
+offset_right = 731.0
+offset_bottom = 325.0
+max_value = 50.0
+value = 50.0
+
+[node name="SlimeHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.049000002
+offset_left = 89.0
+offset_top = 358.0
+offset_right = 275.0
+offset_bottom = 358.638
+value = 100.0
+
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
