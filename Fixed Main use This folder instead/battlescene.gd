@@ -35,26 +35,83 @@ func _on_attack_button_pressed():
 		execute_player_attack()
 
 func execute_player_attack():
-	is_player_turn = false # Block buttons so player can't spam
+	is_player_turn = false 
+	animate_player_attack()
+	
+	await get_tree().create_timer(0.2).timeout
+	
 	var damage = 15
 	enemy_hp -= damage
-	$Background/Panel/Label.text = "You dealt 15 damage!"
+	$Background/Panel/Label.text = "You dealt %s damage!" % damage
 	
-	# Check if enemy died
 	if enemy_hp <= 0:
 		$Background/Panel/Label.text = "Victory! The enemy was defeated."
-		# Optional: add a timer to close the battle here
+		# trigger Death Animation
+		await animate_enemy_death() 
+		# must add code here bryan, to return to the world map
 	else:
-		# Wait 1 second, then the enemy hits back
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		execute_enemy_turn()
-
+		
+		
 func execute_enemy_turn():
+	# 1. Trigger enemy animation
+	animate_enemy_attack()
+	await get_tree().create_timer(0.2).timeout
+
 	var enemy_damage = 10
 	player_hp -= enemy_damage
-	$Background/Panel/Label.text = "The enemy hits you for " + str(enemy_damage) + " damage!"
+	$Background/Panel/Label.text = "The enemy hits you for %s!" % enemy_damage
 	
 	if player_hp <= 0:
 		$Background/Panel/Label.text = "You have been defeated..."
 	else:
-		is_player_turn = true # Turn comes back to you
+		is_player_turn = true
+		await get_tree().create_timer(1.0).timeout
+		$Background/Panel/Label.text = "Your turn!"
+		
+		
+func animate_player_attack():
+	var tween = create_tween()
+	var player = $Background/Sprite2D 
+	var original_pos = player.position
+	
+	# move forward quickly
+	tween.tween_property(player, "position", original_pos + Vector2(50, 0), 0.1)
+	# move back to start
+	tween.tween_property(player, "position", original_pos, 0.2)
+	
+	# make the enemy flash red while being hit
+	var enemy_tween = create_tween()
+	$Background/Slime.modulate = Color.RED
+	enemy_tween.tween_property($Background/Slime, "modulate", Color.WHITE, 0.3)
+
+func animate_enemy_attack():
+	var tween = create_tween()
+	var enemy = $Background/Slime
+	var original_pos = enemy.position
+	
+	# enemy moves left towards the player
+	tween.tween_property(enemy, "position", original_pos + Vector2(-50, 0), 0.1)
+	tween.tween_property(enemy, "position", original_pos, 0.2)
+	
+	# makes the player flash red
+	var player_tween = create_tween()
+	$Background/Sprite2D.modulate = Color.RED
+	player_tween.tween_property($Background/Sprite2D, "modulate", Color.WHITE, 0.3)
+
+
+func animate_enemy_death():
+	var tween = create_tween()
+	var enemy = $Background/Slime
+	
+	#animate two things at once:
+	# 1. fade out (modulate alpha to 0)
+	# 2. shrink (Scale to 0)
+	tween.set_parallel(true) 
+	tween.tween_property(enemy, "modulate:a", 0.0, 2.0) # fades over 2s
+	tween.tween_property(enemy, "scale", Vector2(0, 0), 2.0) # shrinks over 2s
+	
+	# wait for the animation to finish
+	await tween.finished
+	enemy.visible = false # fully hides it at the end
