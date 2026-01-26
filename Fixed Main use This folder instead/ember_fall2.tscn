@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ds5x4sl74uma4"]
 
-[ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://emberfall/Solaria Demo Tiles.png" id="1_87bpj"]
-[ext_resource type="Texture2D" uid="uid://bmids5d1jkshe" path="res://emberfall/art/houses.png" id="2_dqtsl"]
+[ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://Solaria Demo Tiles.png" id="1_87bpj"]
+[ext_resource type="Texture2D" uid="uid://bmids5d1jkshe" path="res://houses.png" id="2_dqtsl"]
 [ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="3_m7utx"]
 [ext_resource type="PackedScene" uid="uid://ur5atryka0r" path="res://enemy.tscn" id="4_0b5c4"]
 [ext_resource type="AudioStream" uid="uid://f8fuiou6fge2" path="res://Pixel Meadow Village.mp3" id="5_tmqm7"]
@@ -2539,7 +2539,7 @@ sources/2 = SubResource("TileSetAtlasSource_w0qy8")
 size = Vector2(15.25, 8.1875)
 
 [node name="TileMap" type="TileMap"]
-position = Vector2(-215, -34)
+position = Vector2(-252, -13)
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_uw6wf")
 format = 2
@@ -2567,10 +2567,10 @@ connected_scene = "infested_forest"
 position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_m7utx")
 
-[node name="slime2" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(298, 86.5)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tmqm7")
 volume_db = -2.862
 autoplay = true
+
+[node name="slime" parent="." instance=ExtResource("4_0b5c4")]
+position = Vector2(315.5, 294.75)

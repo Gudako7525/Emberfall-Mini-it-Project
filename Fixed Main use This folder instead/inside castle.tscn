@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpwh70y7gsiu8" path="res://Gemini_Generated_Image_wdihwbwdihwbwdih.png" id="2_lcwnc"]
 [ext_resource type="Texture2D" uid="uid://cea6ahqgbht1f" path="res://Gemini_Generated_Image_t2ee0at2ee0at2ee.png" id="3_0onaf"]
 [ext_resource type="Texture2D" uid="uid://bkh8jjuv1w7b7" path="res://Gemini_Generated_Image_yg54iyyg54iyyg54.png" id="4_g8u17"]
-[ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://movement.tscn" id="4_lcwnc"]
+[ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="4_lcwnc"]
 [ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="5_0onaf"]
 [ext_resource type="AudioStream" uid="uid://bapf7wr7e315l" path="res://A Kingdom Carved in Gold.mp3" id="7_d3j45"]
 
@@ -8628,7 +8628,7 @@ position = Vector2(-3, 14)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 78)
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ilhsv")
 format = 2
 layer_0/y_sort_enabled = true
@@ -8640,11 +8640,11 @@ layer_2/tile_data = PackedInt32Array(-10, 2490369, 28, 65526, 2490369, 29, 13106
 
 [node name="Node2D" parent="." instance=ExtResource("4_lcwnc")]
 position = Vector2(-35, 164)
-scale = Vector2(6, 6)
+scale = Vector2(4, 4)
 
 [node name="Area2D2" parent="." instance=ExtResource("5_0onaf")]
 position = Vector2(527, 593)
-connected_scene = "castle"
+connected_scene = "castle2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-562, -248)
