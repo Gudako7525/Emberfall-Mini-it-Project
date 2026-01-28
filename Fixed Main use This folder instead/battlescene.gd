@@ -10,6 +10,8 @@ var crit_chance = 0.20 # 20% chance to crit
 var crit_multiplier = 2.0 # Double damage on crit
 var player_miss_chance = 0.10 # 10% chance to miss
 var enemy_miss_chance = 0.15  # 15% chance for the slime to miss
+var heal_amount = 25       # How much HP the player recovers
+var heal_chance = 0.65    # 65% chance for the heal to succeed
 
 # Called when the node is added to the scene
 func _ready():
@@ -152,3 +154,36 @@ func animate_enemy_death():
 func update_hp_ui():
 	$Background/PlayerHPBar.value = player_hp
 	$Background/SlimeHPBar.value = enemy_hp
+
+
+func _on_heal_button_pressed():
+	# heal if it's the players turn and they arent already at max HP
+	if is_player_turn and player_hp < player_max_hp:
+		execute_player_heal()
+
+func execute_player_heal():
+	is_player_turn = false # Lock turns
+	
+	if randf() < heal_chance:
+		# success
+		player_hp += heal_amount
+		
+		# makes sure HP doesn't go above the maximum
+		if player_hp > player_max_hp:
+			player_hp = player_max_hp
+			
+		update_hp_ui()
+		$Background/Panel/Label.text = "Success! You healed for %s HP." % heal_amount
+		
+		# added a green flash animation to the player
+		var tween = create_tween()
+		$Background/Sprite2D.modulate = Color.GREEN
+		tween.tween_property($Background/Sprite2D, "modulate", Color.WHITE, 0.4)
+		
+	else:
+		# fail
+		$Background/Panel/Label.text = "The heal failed! You wasted your turn."
+	
+	await get_tree().create_timer(1.5).timeout
+	if enemy_hp > 0:
+		execute_enemy_turn()
