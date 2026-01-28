@@ -8,6 +8,8 @@ var enemy_hp = 50
 var is_player_turn = true
 var crit_chance = 0.20 # 20% chance to crit
 var crit_multiplier = 2.0 # Double damage on crit
+var player_miss_chance = 0.10 # 10% chance to miss
+var enemy_miss_chance = 0.15  # 15% chance for the slime to miss
 
 # Called when the node is added to the scene
 func _ready():
@@ -51,49 +53,55 @@ func execute_player_attack():
 	
 	await get_tree().create_timer(0.4).timeout
 	
-	# CRITICAL HIT LOGIC
-	var base_damage = 15
-	var final_damage = base_damage
-	var is_crit = false
-	
-	# if random number is less than 0.20, it's a crit
-	if randf() < crit_chance:
-		is_crit = true
-		final_damage = base_damage * crit_multiplier
-	# --------------------------
-
-	enemy_hp -= final_damage
-	update_hp_ui() 
-	
-	# Update Label with special text for Crits
-	if is_crit:
-		$Background/Panel/Label.text = "CRITICAL HIT! You dealt %s damage!" % final_damage
-		# Pro Tip: Make the screen shake or enemy flash brighter here
+	# --- HIT OR MISS LOGIC ---
+	if randf() < player_miss_chance:
+		$Background/Panel/Label.text = "You MISSED!"
+		# skip damage and go straight to the enemy's turn
 	else:
-		$Background/Panel/Label.text = "You dealt %s damage!" % final_damage
+		# DAMAGE & CRIT LOGIC
+		var base_damage = 15
+		var final_damage = base_damage
+		var is_crit = false
+		
+		if randf() < crit_chance:
+			is_crit = true
+			final_damage = base_damage * crit_multiplier
+
+		enemy_hp -= final_damage
+		update_hp_ui() 
+		
+		if is_crit:
+			$Background/Panel/Label.text = "CRITICAL HIT! You dealt %s damage!" % final_damage
+		else:
+			$Background/Panel/Label.text = "You dealt %s damage!" % final_damage
 	
+	# --- TURN TRANSITION ---
 	if enemy_hp <= 0:
 		$Background/Panel/Label.text = "Victory!"
 		await animate_enemy_death()
 	else:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.5).timeout # Longer wait so they can read the text
 		execute_enemy_turn()
 		
 		
 func execute_enemy_turn():
-	animate_enemy_attack() # Keep your animation call
+	animate_enemy_attack()
+	await get_tree().create_timer(0.4).timeout
 	
-	await get_tree().create_timer(0.5).timeout
-	
-	player_hp = player_hp - 5 # Take 5 damage
-	update_hp_ui() # <--- THIS UPDATES THE BAR
-	
-	$Background/Panel/Label.text = "The Slime hits you for 5!"
+	#SLIME MISS LOGIC
+	if randf() < enemy_miss_chance:
+		$Background/Panel/Label.text = "The Slime lunged but MISSED!"
+	else:
+		player_hp -= 5 
+		update_hp_ui() 
+		$Background/Panel/Label.text = "The Slime hits you for 5!"
 	
 	if player_hp <= 0:
 		$Background/Panel/Label.text = "You were defeated..."
 	else:
+		await get_tree().create_timer(1.5).timeout
 		is_player_turn = true
+		$Background/Panel/Label.text = "Your turn!"
 		
 		
 func animate_player_attack():
