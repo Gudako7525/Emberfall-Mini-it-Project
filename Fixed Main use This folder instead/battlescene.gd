@@ -12,6 +12,9 @@ var player_miss_chance = 0.10 # 10% chance to miss
 var enemy_miss_chance = 0.15  # 15% chance for the slime to miss
 var heal_amount = 25       # How much HP the player recovers
 var heal_chance = 0.65    # 65% chance for the heal to succeed
+var enemy_heal_amount = 20
+var enemy_heal_chance = 0.70    # 70% success rate
+var enemy_heal_threshold = 15  # Will only try to heal if HP is 15 or less
 
 # Called when the node is added to the scene
 func _ready():
@@ -87,24 +90,56 @@ func execute_player_attack():
 		
 		
 func execute_enemy_turn():
+	# ENEMY AI DECISION
+	# if health is low, the slime will try to heal instead of attacking
+	if enemy_hp <= enemy_heal_threshold and randf() < 0.5: 
+		execute_enemy_heal()
+	else:
+		perform_enemy_attack_logic()
+
+func perform_enemy_attack_logic():
 	animate_enemy_attack()
 	await get_tree().create_timer(0.4).timeout
 	
-	#SLIME MISS LOGIC
 	if randf() < enemy_miss_chance:
-		$Background/Panel/Label.text = "The Slime lunged but MISSED!"
+		$Background/Panel/Label.text = "The Slime MISSED!"
 	else:
 		player_hp -= 5 
 		update_hp_ui() 
 		$Background/Panel/Label.text = "The Slime hits you for 5!"
 	
+	finish_enemy_turn()
+
+func execute_enemy_heal():
+	# Slime doesn't lunge, it just wobbles or flashes
+	$Background/Panel/Label.text = "The Slime is trying to regenerate..."
+	await get_tree().create_timer(0.6).timeout
+	
+	if randf() < enemy_heal_chance:
+		enemy_hp += enemy_heal_amount
+		if enemy_hp > enemy_max_hp:
+			enemy_hp = enemy_max_hp
+		
+		update_hp_ui()
+		$Background/Panel/Label.text = "The Slime healed itself!"
+		
+		# Visual feedback: Blue flash for enemy heal
+		var tween = create_tween()
+		$Background/Slime.modulate = Color.MEDIUM_PURPLE
+		tween.tween_property($Background/Slime, "modulate", Color.WHITE, 0.4)
+	else:
+		$Background/Panel/Label.text = "The Slime failed to heal!"
+	
+	finish_enemy_turn()
+
+func finish_enemy_turn():
+	# to end the enemy turn and give it back to the player
 	if player_hp <= 0:
 		$Background/Panel/Label.text = "You were defeated..."
 	else:
 		await get_tree().create_timer(1.5).timeout
 		is_player_turn = true
 		$Background/Panel/Label.text = "Your turn!"
-		
 		
 func animate_player_attack():
 	var tween = create_tween()
