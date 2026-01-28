@@ -6,6 +6,8 @@ var player_hp = 100
 var enemy_max_hp = 50
 var enemy_hp = 50
 var is_player_turn = true
+var crit_chance = 0.20 # 20% chance to crit
+var crit_multiplier = 2.0 # Double damage on crit
 
 # Called when the node is added to the scene
 func _ready():
@@ -45,14 +47,30 @@ func _on_attack_button_pressed():
 
 func execute_player_attack():
 	is_player_turn = false
-	animate_player_attack() # animation call
+	animate_player_attack() 
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 	
-	enemy_hp = enemy_hp - 10 # Deals 10 damage
-	update_hp_ui() # <--- THIS UPDATES THE BAR
+	# CRITICAL HIT LOGIC
+	var base_damage = 15
+	var final_damage = base_damage
+	var is_crit = false
 	
-	$Background/Panel/Label.text = "You dealt 10 damage!"
+	# if random number is less than 0.20, it's a crit
+	if randf() < crit_chance:
+		is_crit = true
+		final_damage = base_damage * crit_multiplier
+	# --------------------------
+
+	enemy_hp -= final_damage
+	update_hp_ui() 
+	
+	# Update Label with special text for Crits
+	if is_crit:
+		$Background/Panel/Label.text = "CRITICAL HIT! You dealt %s damage!" % final_damage
+		# Pro Tip: Make the screen shake or enemy flash brighter here
+	else:
+		$Background/Panel/Label.text = "You dealt %s damage!" % final_damage
 	
 	if enemy_hp <= 0:
 		$Background/Panel/Label.text = "Victory!"
