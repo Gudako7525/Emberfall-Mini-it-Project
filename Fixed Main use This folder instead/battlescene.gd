@@ -1,6 +1,9 @@
 extends Control
 
+
+var player_max_hp = 100
 var player_hp = 100
+var enemy_max_hp = 50
 var enemy_hp = 50
 var is_player_turn = true
 
@@ -26,8 +29,14 @@ func init(character_name, lvl):
 	get_tree().paused = true
 	
 	# Set the text to display the enemy encounter message
-	$background/Panel/Label.text = "A wild %s lvl %s appears" % [character_name, lvl]
+	$Background/Panel/Label.text = "A wild %s lvl %s appears" % [character_name, lvl]
 	pass
+	
+	$Background/PlayerHPBar.max_value = player_max_hp
+	$Background/PlayerHPBar.value = player_hp
+	
+	$Background/SlimeHPBar.max_value = enemy_max_hp
+	$Background/SlimeHPBar.value = enemy_hp
 
 func _on_attack_button_pressed():
 	# Only allow attack if it's the player's turn and enemy is alive
@@ -35,40 +44,38 @@ func _on_attack_button_pressed():
 		execute_player_attack()
 
 func execute_player_attack():
-	is_player_turn = false 
-	animate_player_attack()
+	is_player_turn = false
+	animate_player_attack() # animation call
 	
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.5).timeout
 	
-	var damage = 15
-	enemy_hp -= damage
-	$Background/Panel/Label.text = "You dealt %s damage!" % damage
+	enemy_hp = enemy_hp - 10 # Deals 10 damage
+	update_hp_ui() # <--- THIS UPDATES THE BAR
+	
+	$Background/Panel/Label.text = "You dealt 10 damage!"
 	
 	if enemy_hp <= 0:
-		$Background/Panel/Label.text = "Victory! The enemy was defeated."
-		# trigger Death Animation
-		await animate_enemy_death() 
-		# must add code here bryan, to return to the world map
+		$Background/Panel/Label.text = "Victory!"
+		await animate_enemy_death()
 	else:
 		await get_tree().create_timer(1.0).timeout
 		execute_enemy_turn()
 		
 		
 func execute_enemy_turn():
-	# 1. Trigger enemy animation
-	animate_enemy_attack()
-	await get_tree().create_timer(0.2).timeout
-
-	var enemy_damage = 10
-	player_hp -= enemy_damage
-	$Background/Panel/Label.text = "The enemy hits you for %s!" % enemy_damage
+	animate_enemy_attack() # Keep your animation call
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	player_hp = player_hp - 5 # Take 5 damage
+	update_hp_ui() # <--- THIS UPDATES THE BAR
+	
+	$Background/Panel/Label.text = "The Slime hits you for 5!"
 	
 	if player_hp <= 0:
-		$Background/Panel/Label.text = "You have been defeated..."
+		$Background/Panel/Label.text = "You were defeated..."
 	else:
 		is_player_turn = true
-		await get_tree().create_timer(1.0).timeout
-		$Background/Panel/Label.text = "Your turn!"
 		
 		
 func animate_player_attack():
@@ -115,3 +122,7 @@ func animate_enemy_death():
 	# wait for the animation to finish
 	await tween.finished
 	enemy.visible = false # fully hides it at the end
+	
+func update_hp_ui():
+	$Background/PlayerHPBar.value = player_hp
+	$Background/SlimeHPBar.value = enemy_hp
