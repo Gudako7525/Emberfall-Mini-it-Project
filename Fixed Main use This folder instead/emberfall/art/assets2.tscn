@@ -34,7 +34,7 @@ vframes = 12
 frame = 49
 
 [node name="Slime" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
-position = Vector2(664, 236)
+position = Vector2(650.00006, 239)
 scale = Vector2(3.5468752, 3.3084738)
 texture = ExtResource("4_araw4")
 hframes = 8
@@ -85,10 +85,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 568.0
-offset_top = 53.0
-offset_right = 568.0
-offset_bottom = 53.0
+offset_left = 629.0
+offset_top = 69.0
+offset_right = 629.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
