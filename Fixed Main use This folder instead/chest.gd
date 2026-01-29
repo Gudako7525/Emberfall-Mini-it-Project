@@ -37,8 +37,17 @@ func _on_timer_timeout():
 		state = "chest closed"
 
 func drop_potion():
+	# 1. Visual Potion animation
 	var potion_instance = potion.instantiate()
-	print("Potion Spawned")
 	potion_instance.global_position = $Marker2D.global_position 
 	add_child(potion_instance)
-	player.collect(item)
+
+	# 2. Update Global Brain (For Combat)
+	Global.potion_count += 1
+	
+	# 3. Update Visual Inventory (For your UI)
+	# We check if 'item' exists and the player is valid
+	if player and item:
+		player.collect(item) 
+		print("Sent to visual inventory")
+		
