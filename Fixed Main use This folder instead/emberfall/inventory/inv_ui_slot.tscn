@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c63kuk3ktnalj"]
 
-[ext_resource type="Texture2D" uid="uid://booaelwiivfx1" path="res://art/inventory-slot.png" id="1_dfngl"]
-[ext_resource type="Script" uid="uid://s0wp5lubg42d" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
+[ext_resource type="Texture2D" uid="uid://booaelwiivfx1" path="res://emberfall/art/inventory-slot.png" id="1_dfngl"]
+[ext_resource type="Script" uid="uid://s0wp5lubg42d" path="res://emberfall/inventory/inv_ui_slot.gd" id="1_fcwim"]
 
 [node name="inv_UI_slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed : float = 300.0
 @export var sprint_multiplier : float = 2.0
 @export var animation_tree : AnimationTree
+@export var inv: Inv
 
 var input : Vector2
 var playback : AnimationNodeStateMachinePlayback
@@ -44,3 +45,18 @@ func update_animation_parameters() -> void:
 	
 	animation_tree["parameters/idle/blend_position"] = input
 	animation_tree["parameters/walk/blend_position"] = input
+
+# This allows the chest and other items to identify the player
+func Player():
+	pass
+	
+# This function is what the chest is looking for!
+func collect(item_to_add):
+	# 1. This updates the visual inventory resource
+	if inv:
+		inv.insert(item_to_add)
+		print("Player script: Item inserted into resource.")
+	else:
+		print("Player script ERROR: No inventory resource assigned in Inspector!")
+	
+	
