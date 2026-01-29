@@ -1,10 +1,8 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bxwc4yo1786fv"]
 
-[ext_resource type="Script" uid="uid://cpypd1uksfvfm" path="res://inventory/inventoryitem.gd" id="1_adcxm"]
-[ext_resource type="Texture2D" uid="uid://b8ntny5e5v25y" path="res://art/potionimg.png" id="2_hhgwe"]
+[ext_resource type="Script" uid="uid://dihn7u3g4o3t0" path="res://inventoryitem.gd" id="1_21lwq"]
+[ext_resource type="Texture2D" uid="uid://b8ntny5e5v25y" path="res://emberfall/art/potionimg.png" id="2_hhgwe"]
 
 [resource]
-script = ExtResource("1_adcxm")
-name = "potion"
+script = ExtResource("1_21lwq")
 texture = ExtResource("2_hhgwe")
-metadata/_custom_type_script = "uid://cpypd1uksfvfm"
