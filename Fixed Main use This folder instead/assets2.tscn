@@ -76,17 +76,17 @@ offset_bottom = 129.0
 text = "Flee
 "
 
-[node name="InventoryButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="HealButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_right = 508.0
 offset_bottom = 46.0
-text = "Inventory
-"
+text = "Heal"
 
 [node name="Label" type="Label" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
-offset_right = 330.0
+offset_left = -8.0
+offset_right = 322.0
 offset_bottom = 129.0
 text = "Random AHH SLIME APPEARED"
 horizontal_alignment = 1
@@ -130,3 +130,4 @@ value = 100.0
 show_percentage = false
 
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/HealButton" to="CanvasLayer/Battlescene" method="_on_heal_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=64 format=3 uid="uid://8wmsesqoob48"]
+[gd_scene load_steps=65 format=3 uid="uid://8wmsesqoob48"]
 
 [ext_resource type="Script" uid="uid://28cvug00h8e7" path="res://character_body_2d.gd" id="1_2bkep"]
 [ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="2_2bkep"]
+[ext_resource type="Resource" uid="uid://cvfm5ixlatvyb" path="res://emberfall/inventory/playerinv.tres" id="2_cxr5p"]
 [ext_resource type="Script" uid="uid://d7v8txsfsl7c" path="res://camera_2d.gd" id="3_kne1u"]
 [ext_resource type="PackedScene" uid="uid://cx0d4vnkl1rgs" path="res://emberfall/inventory/inv_ui.tscn" id="4_e80uo"]
 
@@ -504,6 +505,7 @@ graph_offset = Vector2(-172, -15)
 collision_layer = 3
 script = ExtResource("1_2bkep")
 animation_tree = NodePath("AnimationTree")
+inv = ExtResource("2_cxr5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 1)

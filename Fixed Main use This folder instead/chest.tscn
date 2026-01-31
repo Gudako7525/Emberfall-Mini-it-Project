@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnf7bi1jeolx3" path="res://chest.gd" id="1_bp1or"]
 [ext_resource type="Texture2D" uid="uid://cd51ih5jjppfo" path="res://closedchestimg.png" id="2_trlyu"]
-[ext_resource type="Resource" path="res://potion.tres" id="2_x7mpe"]
+[ext_resource type="Resource" uid="uid://bxwc4yo1786fv" path="res://emberfall/inventory/items/potion.tres" id="2_x7mpe"]
 [ext_resource type="Texture2D" uid="uid://b5d3angwivg1n" path="res://openedchestimg.png" id="3_x7mpe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bv3sb"]

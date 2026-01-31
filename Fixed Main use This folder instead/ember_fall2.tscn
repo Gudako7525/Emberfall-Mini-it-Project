@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds5x4sl74uma4"]
+[gd_scene load_steps=13 format=3 uid="uid://ds5x4sl74uma4"]
 
 [ext_resource type="Texture2D" uid="uid://devwc0ngcw50c" path="res://Solaria Demo Tiles.png" id="1_87bpj"]
 [ext_resource type="Texture2D" uid="uid://bmids5d1jkshe" path="res://houses.png" id="2_dqtsl"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ur5atryka0r" path="res://enemy.tscn" id="4_0b5c4"]
 [ext_resource type="AudioStream" uid="uid://f8fuiou6fge2" path="res://Pixel Meadow Village.mp3" id="5_tmqm7"]
 [ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="6_dqtsl"]
+[ext_resource type="PackedScene" uid="uid://cfvaap38k4532" path="res://chest.tscn" id="7_m7utx"]
+[ext_resource type="Resource" uid="uid://bxwc4yo1786fv" path="res://emberfall/inventory/items/potion.tres" id="8_0b5c4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uw6wf"]
 texture = ExtResource("1_87bpj")
@@ -2572,5 +2574,27 @@ stream = ExtResource("5_tmqm7")
 volume_db = -2.862
 autoplay = true
 
-[node name="slime" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(426.5, 336.25)
+[node name="chest" parent="." instance=ExtResource("7_m7utx")]
+position = Vector2(375.75, -79)
+scale = Vector2(0.050073463, 0.04203204)
+item = ExtResource("8_0b5c4")
+
+[node name="chest2" parent="." instance=ExtResource("7_m7utx")]
+position = Vector2(-130, 17)
+scale = Vector2(0.050073463, 0.04203204)
+item = ExtResource("8_0b5c4")
+
+[node name="chest3" parent="." instance=ExtResource("7_m7utx")]
+position = Vector2(53.75, -107.5)
+scale = Vector2(0.050073463, 0.04203204)
+item = ExtResource("8_0b5c4")
+
+[node name="chest4" parent="." instance=ExtResource("7_m7utx")]
+position = Vector2(358, 180.75002)
+scale = Vector2(0.050073463, 0.04203204)
+item = ExtResource("8_0b5c4")
+
+[node name="chest5" parent="." instance=ExtResource("7_m7utx")]
+position = Vector2(-68.75, 291.75)
+scale = Vector2(0.050073463, 0.04203204)
+item = ExtResource("8_0b5c4")
