@@ -1,7 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://ur5atryka0r"]
+[gd_scene load_steps=22 format=3 uid="uid://ur5atryka0r"]
 
 [ext_resource type="Script" uid="uid://bd7vn1ae0yhxy" path="res://Enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://bypjrfxephg3k" path="res://Slime1_Walk_full.png" id="2_qi2p4"]
+[ext_resource type="Script" uid="uid://dwgno8dmh2frb" path="res://detection_area.gd" id="3_iifgy"]
+[ext_resource type="Script" uid="uid://bncekdaapl2wn" path="res://collision_shape_2d.gd" id="3_qi2p4"]
+[ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="5_epg4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 67.06713
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
+radius = 8.18687
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
 atlas = ExtResource("2_qi2p4")
@@ -100,16 +109,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
-radius = 67.06713
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
-radius = 8.18687
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(27, 25)
 
 [node name="slime" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_4gyqm")
+
+[node name="detection area" type="Area2D" parent="."]
+position = Vector2(16, 14)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_iifgy")
+battle_scene_path = "res://assets2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection area"]
+position = Vector2(-16, -14)
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(1.1071428, 1.0294118)
+shape = SubResource("CircleShape2D_iifgy")
+script = ExtResource("3_qi2p4")
+connected_scene = "assets2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
@@ -118,18 +142,16 @@ sprite_frames = SubResource("SpriteFrames_doop2")
 animation = &"idle"
 frame_progress = 0.15991294
 
-[node name="detection area" type="Area2D" parent="."]
-position = Vector2(15, 13)
+[node name="Area2D" parent="AnimatedSprite2D" instance=ExtResource("5_epg4t")]
+position = Vector2(-140, -10.000001)
+scale = Vector2(1, 1.0000001)
 collision_layer = 2
-collision_mask = 2
+connected_scene = "assets2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection area"]
-shape = SubResource("CircleShape2D_4gyqm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
-scale = Vector2(1.1071428, 1.0294118)
-shape = SubResource("CircleShape2D_iifgy")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+light_mask = 2
+position = Vector2(139.5, 11.5)
+shape = SubResource("RectangleShape2D_3yqyl")
 
 [connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]

@@ -57,6 +57,7 @@ func execute_player_attack():
 	if enemy_hp <= 0:
 		$Background/Panel/Label.text = "Victory!"
 		await animate_enemy_death()
+		get_tree().change_scene_to_file("res://ember_fall3.tscn")
 	else:
 		await get_tree().create_timer(1.0).timeout
 		execute_enemy_turn()

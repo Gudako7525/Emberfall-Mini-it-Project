@@ -6,24 +6,36 @@
 [ext_resource type="Texture2D" uid="uid://bypjrfxephg3k" path="res://Slime1_Walk_full.png" id="4_araw4"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-367, -130)
+scale = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Battlescene" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 118.0
+offset_top = 115.0
+offset_right = 158.0
+offset_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
 script = ExtResource("1_gtchi")
 
 [node name="Background" type="TextureRect" parent="CanvasLayer/Battlescene"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 82.0
-offset_right = 956.0
-offset_bottom = 620.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.075
+anchor_top = -0.525
+anchor_right = 20.625
+anchor_bottom = 12.925
+offset_left = -88.0
+offset_top = -133.0
+offset_right = -88.0
+offset_bottom = -133.0
 texture = ExtResource("2_rc43v")
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
 position = Vector2(177, 304.00003)
@@ -47,7 +59,7 @@ offset_top = 358.0
 offset_right = 868.0
 offset_bottom = 487.0
 
-[node name="Button" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="AttackButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 46.0
@@ -55,7 +67,7 @@ offset_right = 506.0
 offset_bottom = 83.0
 text = "Attack"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="FleeButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 83.0
@@ -64,7 +76,7 @@ offset_bottom = 129.0
 text = "Flee
 "
 
-[node name="Button3" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+[node name="InventoryButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
 offset_left = 330.0
 offset_right = 508.0
@@ -94,3 +106,27 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Battlescene/Background"]
+
+[node name="PlayerHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+modulate = Color(0.8392157, 0, 0.08627451, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+offset_left = 100.0
+offset_top = 370.0
+offset_right = 252.244
+offset_bottom = 397.0
+value = 100.0
+show_percentage = false
+
+[node name="SlimeHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+modulate = Color(0.8392157, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 569.0
+offset_top = 293.0
+offset_right = 729.0
+offset_bottom = 320.0
+value = 100.0
+show_percentage = false
+
+[connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
