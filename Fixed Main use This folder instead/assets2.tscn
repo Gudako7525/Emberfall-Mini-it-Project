@@ -74,7 +74,8 @@ text = "Heal"
 
 [node name="Label" type="Label" parent="CanvasLayer/Battlescene/Background/Panel"]
 layout_mode = 0
-offset_right = 330.0
+offset_left = -8.0
+offset_right = 322.0
 offset_bottom = 129.0
 text = "Random  SLIME APPEARED"
 horizontal_alignment = 1
@@ -117,6 +118,15 @@ offset_bottom = 302.638
 max_value = 50.0
 value = 50.0
 show_percentage = false
+
+[node name="PotionLabel" type="Label" parent="CanvasLayer/Battlescene/Background"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 740.0
+offset_top = 337.0
+offset_right = 816.0
+offset_bottom = 360.0
+text = "Potions: 0"
 
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/HealButton" to="CanvasLayer/Battlescene" method="_on_heal_button_pressed"]
