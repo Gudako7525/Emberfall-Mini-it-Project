@@ -10,13 +10,13 @@ var crit_multiplier = 2.0 # Double damage on crit
 var player_miss_chance = 0.10 # 10% chance to miss
 var enemy_miss_chance = 0.15  # 15% chance for the slime to miss
 var heal_amount = 25       # How much HP the player recovers
-var heal_chance = 0.65    # 65% chance for the heal to succeed
 var enemy_heal_amount = 20
 var enemy_heal_chance = 0.70    # 70% success rate
 var enemy_heal_threshold = 15  # Will only try to heal if HP is 15 or less
 
 # Called when the node is added to the scene
 func _ready():
+	update_potion_display()
 	# Hide the battle UI elements initially
 
 	
@@ -24,6 +24,9 @@ func _ready():
 	event_handler.battle_started.connect(init)
 	pass
 
+func update_potion_display():
+	# Accesses the global variable you incremented in the chest script
+	$Background/PotionLabel.text = "Potions: " + str(Global.potion_count)
 
 # Initialization function called when the "battle_started" signal is emitted
 func init(character_name, lvl):
@@ -191,33 +194,38 @@ func update_hp_ui():
 
 
 func _on_heal_button_pressed():
-	# heal if it's the players turn and they arent already at max HP
-	if is_player_turn and player_hp < player_max_hp:
-		execute_player_heal()
-
-func execute_player_heal():
-	is_player_turn = false # Lock turns
-	
-	if randf() < heal_chance:
-		# success
+	# 1. only heal if it's your turn and you have potions
+	if is_player_turn and Global.potion_count > 0:
+		is_player_turn = false # LOCKS the turn immediately
+		
+		# 2. uses one potion
+		Global.potion_count -= 1
+		update_potion_display()
+		
+		# 3. healing 
 		player_hp += heal_amount
+		player_hp = min(player_hp, player_max_hp) # Cleaner way to cap HP
 		
-		# makes sure HP doesn't go above the maximum
-		if player_hp > player_max_hp:
-			player_hp = player_max_hp
-			
+		# 4. update UI
 		update_hp_ui()
-		$Background/Panel/Label.text = "Success! You healed for %s HP." % heal_amount
+		$Background/Panel/Label.text = "You used a potion and recovered %s HP!" % heal_amount
 		
-		# added a green flash animation to the player
+		# 5. HEALING ANIMATION
 		var tween = create_tween()
-		$Background/Sprite2D.modulate = Color.GREEN
-		tween.tween_property($Background/Sprite2D, "modulate", Color.WHITE, 0.4)
+		var player_sprite = $Background/Sprite2D
 		
-	else:
-		# fail
-		$Background/Panel/Label.text = "The heal failed! You wasted your turn."
-	
-	await get_tree().create_timer(1.5).timeout
-	if enemy_hp > 0:
-		execute_enemy_turn()
+		tween.tween_property(player_sprite, "modulate", Color.GREEN, 0.1)
+		tween.parallel().tween_property(player_sprite, "position:y", player_sprite.position.y - 10, 0.1)
+		
+		tween.tween_property(player_sprite, "modulate", Color.WHITE, 0.3)
+		tween.parallel().tween_property(player_sprite, "position:y", player_sprite.position.y, 0.2)
+		
+		# 6.animation, then trigger the enemy
+		await get_tree().create_timer(1.5).timeout
+		if enemy_hp > 0:
+			execute_enemy_turn()
+			
+	elif is_player_turn and Global.potion_count <= 0:
+		# You're out of potions 
+		# player can still choose to attack instead.
+		$Background/Panel/Label.text = "You are out of potions!"
