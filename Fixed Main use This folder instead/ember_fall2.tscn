@@ -2541,7 +2541,7 @@ sources/2 = SubResource("TileSetAtlasSource_w0qy8")
 size = Vector2(15.25, 8.1875)
 
 [node name="TileMap" type="TileMap"]
-position = Vector2(-215, -34)
+position = Vector2(-252, -13)
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_uw6wf")
 format = 2
@@ -2555,7 +2555,7 @@ layer_2/tile_data = PackedInt32Array(-262152, 524288, 4, -262149, 589824, 4, 327
 
 [node name="player" parent="." instance=ExtResource("3_m7utx")]
 z_as_relative = false
-position = Vector2(204.75, 300.25)
+position = Vector2(169, 325.25)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-14.75, 36)
@@ -2566,11 +2566,8 @@ position = Vector2(-149, -3)
 connected_scene = "infested_forest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
-position = Vector2(0, -4.25)
+position = Vector2(34.5, -33)
 shape = SubResource("RectangleShape2D_m7utx")
-
-[node name="slime2" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(298, 86.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tmqm7")
