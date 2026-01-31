@@ -1,6 +1,5 @@
 extends Control
 
-
 var player_max_hp = 100
 var player_hp = 100
 var enemy_max_hp = 50
