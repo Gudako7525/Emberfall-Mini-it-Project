@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbmula2ch0426"]
+[gd_scene load_steps=18 format=3 uid="uid://dbmula2ch0426"]
 
 [ext_resource type="Texture2D" uid="uid://bu8g3ec51vop" path="res://Ground.png" id="1_h5t2u"]
 [ext_resource type="Texture2D" uid="uid://d3iaxdvuq1jq4" path="res://Objects.png" id="2_sjo0q"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="6_2vori"]
 [ext_resource type="PackedScene" uid="uid://8wmsesqoob48" path="res://Player.tscn" id="7_udt1a"]
 [ext_resource type="AudioStream" uid="uid://dktvk3ivtkdd0" path="res://Midnight Pixels of Avalon.mp3" id="8_udt1a"]
+[ext_resource type="PackedScene" uid="uid://cfvaap38k4532" path="res://chest.tscn" id="9_371o5"]
+[ext_resource type="PackedScene" uid="uid://ur5atryka0r" path="res://enemy.tscn" id="10_o0ui2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udt1a"]
 texture = ExtResource("1_h5t2u")
@@ -4001,3 +4003,13 @@ autoplay = true
 
 [node name="Node2D" parent="." instance=ExtResource("7_udt1a")]
 position = Vector2(-656.25, 226.25)
+
+[node name="chest" parent="." instance=ExtResource("9_371o5")]
+position = Vector2(326.75003, 154.00002)
+scale = Vector2(0.042877708, 0.04155974)
+
+[node name="slime" parent="." instance=ExtResource("10_o0ui2")]
+position = Vector2(-247.75, 173.5)
+
+[node name="slime2" parent="." instance=ExtResource("10_o0ui2")]
+position = Vector2(-434.75, 276.75)

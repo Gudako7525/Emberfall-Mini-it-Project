@@ -88,7 +88,7 @@ layout_mode = 0
 offset_left = -8.0
 offset_right = 322.0
 offset_bottom = 129.0
-text = "Random AHH SLIME APPEARED"
+text = "Random SLIME APPEARED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -128,6 +128,14 @@ offset_right = 729.0
 offset_bottom = 320.0
 value = 100.0
 show_percentage = false
+
+[node name="PotionLabel" type="Label" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 334.0
+offset_right = 861.0
+offset_bottom = 357.0
+text = "Potion: 0"
 
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/HealButton" to="CanvasLayer/Battlescene" method="_on_heal_button_pressed"]
