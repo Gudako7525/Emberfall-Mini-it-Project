@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmyosl80vrxst"]
+[gd_scene load_steps=5 format=3 uid="uid://bb1453330xosr"]
 
-[ext_resource type="Script" uid="uid://b332wua3ckrde" path="res://battlescene.gd" id="1_gtchi"]
-[ext_resource type="Texture2D" uid="uid://bmdgxpiiaq653" path="res://c50a18008bf3f9aade4d1b6bb5cc5aea.jpg" id="2_rc43v"]
-[ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="3_uk0q3"]
-[ext_resource type="Texture2D" uid="uid://bypjrfxephg3k" path="res://Slime1_Walk_full.png" id="4_araw4"]
+[ext_resource type="Script" uid="uid://cjux38mxsj7km" path="res://dragonbattlescene.gd" id="1_e5cav"]
+[ext_resource type="Texture2D" uid="uid://bmdgxpiiaq653" path="res://c50a18008bf3f9aade4d1b6bb5cc5aea.jpg" id="2_gkc1x"]
+[ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="3_dpbmb"]
+[ext_resource type="Texture2D" uid="uid://bplvcj1ve5cc3" path="res://emberfall/dragon.png" id="4_e5cav"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-367, -130)
@@ -18,8 +18,9 @@ offset_left = 118.0
 offset_top = 115.0
 offset_right = 158.0
 offset_bottom = 155.0
-size_flags_vertical = 4
-script = ExtResource("1_gtchi")
+size_flags_horizontal = 3
+size_flags_vertical = 6
+script = ExtResource("1_e5cav")
 
 [node name="Background" type="TextureRect" parent="CanvasLayer/Battlescene"]
 layout_mode = 1
@@ -32,24 +33,24 @@ offset_left = -88.0
 offset_top = -133.0
 offset_right = -88.0
 offset_bottom = -133.0
-texture = ExtResource("2_rc43v")
+texture = ExtResource("2_gkc1x")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
 position = Vector2(177, 304.00003)
 scale = Vector2(5.1093736, 4.535714)
-texture = ExtResource("3_uk0q3")
+texture = ExtResource("3_dpbmb")
 hframes = 8
 vframes = 12
 frame = 49
 
-[node name="Slime" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
-position = Vector2(650.00006, 239)
+[node name="Dragon" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
+position = Vector2(611, 219)
 scale = Vector2(3.5468752, 3.3084738)
-texture = ExtResource("4_araw4")
-hframes = 8
-vframes = 5
+texture = ExtResource("4_e5cav")
+vframes = 3
+frame = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Battlescene/Background"]
 layout_mode = 0
@@ -87,7 +88,7 @@ layout_mode = 0
 offset_left = -8.0
 offset_right = 322.0
 offset_bottom = 129.0
-text = "Random SLIME APPEARED"
+text = "The Dragon has APPEARED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -118,14 +119,15 @@ offset_bottom = 397.0
 value = 100.0
 show_percentage = false
 
-[node name="SlimeHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+[node name="DragonHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
 modulate = Color(0.8392157, 0, 0.08627451, 1)
 layout_mode = 0
-offset_left = 569.0
-offset_top = 293.0
-offset_right = 729.0
-offset_bottom = 320.0
-value = 100.0
+offset_left = 390.0
+offset_top = 92.0
+offset_right = 645.0
+offset_bottom = 119.0
+max_value = 250.0
+value = 250.0
 show_percentage = false
 
 [node name="PotionLabel" type="Label" parent="CanvasLayer/Battlescene/Background"]
