@@ -3,17 +3,17 @@ extends Control
 
 var player_max_hp = 100
 var player_hp = 100
-var enemy_max_hp = 50
-var enemy_hp = 50
+var enemy_max_hp = 250
+var enemy_hp = 250
 var is_player_turn = true
 var crit_chance = 0.20 # 20% chance to crit
 var crit_multiplier = 2.0 # Double damage on crit
 var player_miss_chance = 0.10 # 10% chance to miss
-var enemy_miss_chance = 0.15  # 15% chance for the slime to miss
+var enemy_miss_chance = 0.10  # 10% chance for the dragon to miss
 var heal_amount = 25       # How much HP the player recovers
-var enemy_heal_amount = 20
+var enemy_heal_amount = 30
 var enemy_heal_chance = 0.70    # 70% success rate
-var enemy_heal_threshold = 15  # Will only try to heal if HP is 15 or less
+var enemy_heal_threshold = 40  # dragon will only try to heal if HP is 40 or less
 
 # Called when the node is added to the scene
 func _ready():
@@ -47,8 +47,8 @@ func init(character_name, lvl):
 	$Background/PlayerHPBar.max_value = player_max_hp
 	$Background/PlayerHPBar.value = player_hp
 	
-	$Background/SlimeHPBar.max_value = enemy_max_hp
-	$Background/SlimeHPBar.value = enemy_hp
+	$Background/DragonHPBar.max_value = enemy_max_hp
+	$Background/DragonHPBar.value = enemy_hp
 
 func _on_attack_button_pressed():
 	# Only allow attack if it's the player's turn and enemy is alive
@@ -95,7 +95,7 @@ func execute_player_attack():
 		
 func execute_enemy_turn():
 	# ENEMY AI DECISION
-	# if health is low, the slime will try to heal instead of attacking
+	# if health is low, the dragon will try to heal instead of attacking
 	if enemy_hp <= enemy_heal_threshold and randf() < 0.5: 
 		execute_enemy_heal()
 	else:
@@ -106,17 +106,17 @@ func perform_enemy_attack_logic():
 	await get_tree().create_timer(0.4).timeout
 	
 	if randf() < enemy_miss_chance:
-		$Background/Panel/Label.text = "The Slime MISSED!"
+		$Background/Panel/Label.text = "The dragon MISSED!"
 	else:
-		player_hp -= 5 
+		player_hp -= 25
 		update_hp_ui() 
-		$Background/Panel/Label.text = "The Slime hits you for 5!"
+		$Background/Panel/Label.text = "The dragon hits you for 25!"
 	
 	finish_enemy_turn()
 
 func execute_enemy_heal():
-	# Slime doesn't lunge, it just wobbles or flashes
-	$Background/Panel/Label.text = "The Slime is trying to regenerate..."
+	# dragon doesn't lunge, it just wobbles or flashes
+	$Background/Panel/Label.text = "The dragon is trying to regenerate..."
 	await get_tree().create_timer(0.6).timeout
 	
 	if randf() < enemy_heal_chance:
@@ -125,21 +125,21 @@ func execute_enemy_heal():
 			enemy_hp = enemy_max_hp
 		
 		update_hp_ui()
-		$Background/Panel/Label.text = "The Slime healed itself!"
+		$Background/Panel/Label.text = "The dragon healed itself!"
 		
 		# Visual feedback: Blue flash for enemy heal
 		var tween = create_tween()
-		$Background/Slime.modulate = Color.MEDIUM_PURPLE
-		tween.tween_property($Background/Slime, "modulate", Color.WHITE, 0.4)
+		$Background/Dragon.modulate = Color.MEDIUM_PURPLE
+		tween.tween_property($Background/Dragon, "modulate", Color.WHITE, 0.4)
 	else:
-		$Background/Panel/Label.text = "The Slime failed to heal!"
+		$Background/Panel/Label.text = "The dragon failed to heal!"
 	
 	finish_enemy_turn()
 
 func finish_enemy_turn():
-	# check if player is dead
+	# Check if player is dead
 	if player_hp <= 0:
-		$Background/Panel/Label.text = "You were defeated by the Slime..."
+		$Background/Panel/Label.text = "You were defeated by the Dragon..."
 		# This triggers the new animation
 		await animate_player_death()
 	else:
@@ -159,12 +159,12 @@ func animate_player_attack():
 	
 	# make the enemy flash red while being hit
 	var enemy_tween = create_tween()
-	$Background/Slime.modulate = Color.RED
-	enemy_tween.tween_property($Background/Slime, "modulate", Color.WHITE, 0.3)
+	$Background/Dragon.modulate = Color.RED
+	enemy_tween.tween_property($Background/Dragon, "modulate", Color.WHITE, 0.3)
 
 func animate_enemy_attack():
 	var tween = create_tween()
-	var enemy = $Background/Slime
+	var enemy = $Background/Dragon
 	var original_pos = enemy.position
 	
 	# enemy moves left towards the player
@@ -179,7 +179,7 @@ func animate_enemy_attack():
 
 func animate_enemy_death():
 	var tween = create_tween()
-	var enemy = $Background/Slime
+	var enemy = $Background/Dragon
 	
 	#animate two things at once:
 	# 1. fade out (modulate alpha to 0)
@@ -194,7 +194,7 @@ func animate_enemy_death():
 	
 func update_hp_ui():
 	$Background/PlayerHPBar.value = player_hp
-	$Background/SlimeHPBar.value = enemy_hp
+	$Background/DragonHPBar.value = enemy_hp
 
 
 func _on_heal_button_pressed():
@@ -233,8 +233,8 @@ func _on_heal_button_pressed():
 		# You're out of potions 
 		# player can still choose to attack instead.
 		$Background/Panel/Label.text = "You are out of potions!"
-		
-		
+
+
 func animate_player_death():
 	var tween = create_tween()
 	var player = $Background/Sprite2D
