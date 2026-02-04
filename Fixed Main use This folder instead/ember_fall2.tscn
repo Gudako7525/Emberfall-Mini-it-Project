@@ -2597,10 +2597,4 @@ scale = Vector2(0.050073463, 0.04203204)
 position = Vector2(403.25, -87.5)
 
 [node name="slime2" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(-219, -62.75)
-
-[node name="slime3" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(-158.5, 237.25)
-
-[node name="slime4" parent="." instance=ExtResource("4_0b5c4")]
-position = Vector2(380.5, 320.75)
+position = Vector2(-76.25, 257)
