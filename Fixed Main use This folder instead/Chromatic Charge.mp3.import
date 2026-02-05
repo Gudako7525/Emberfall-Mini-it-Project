@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cf0fd2qi2txee"
+path="res://.godot/imported/Chromatic Charge.mp3-a4fdaa9be24b0e29e6d09b707c950c73.mp3str"
+
+[deps]
+
+source_file="res://Chromatic Charge.mp3"
+dest_files=["res://.godot/imported/Chromatic Charge.mp3-a4fdaa9be24b0e29e6d09b707c950c73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

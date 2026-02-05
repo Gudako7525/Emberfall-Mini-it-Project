@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cri6rkppp8jgq"]
 
-[ext_resource type="Texture2D" uid="uid://dftq87huks756" path="res://emberfall/scripts/Gemini_Generated_Image_42igxe42igxe42ig.png" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://cfhjvksf0y3fp" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dfdnrkebumqii" path="res://emberfall/Gemini_Generated_Image_42igxe42igxe42ig.jpg" id="2_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://bdjww8q67od2i" path="res://Embers at the Gate.mp3" id="3_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhts7"]
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_fu7sn")
 modulate_color = Color(0.7914878, 0.67873347, 0.6094416, 1)
 
 [node name="main menu" type="Control"]

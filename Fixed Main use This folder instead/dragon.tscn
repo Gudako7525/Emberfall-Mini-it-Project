@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://3v1e601yexjw"]
+
+[ext_resource type="Script" uid="uid://bd7vn1ae0yhxy" path="res://Enemy.gd" id="1_mpji6"]
+[ext_resource type="Script" uid="uid://bncekdaapl2wn" path="res://collision_shape_2d.gd" id="3_vneyq"]
+[ext_resource type="Texture2D" uid="uid://cdag1mlnl52mb" path="res://emberfall/art/pngtree-pixel-dragon-with-blue-eyes-and-silver-horns-png-image_15481732.png" id="4_mpji6"]
+[ext_resource type="PackedScene" uid="uid://cf6h5m3ktckd4" path="res://scenetrigger.tscn" id="5_d8vd7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
+radius = 8.18687
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyrd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mpji6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(456, 301)
+
+[node name="slime" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_mpji6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(1.1071428, 1.0294118)
+shape = SubResource("CircleShape2D_iifgy")
+script = ExtResource("3_vneyq")
+connected_scene = "assets2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_gyrd2")
+speed_scale = 1.005
+
+[node name="Area2D" parent="AnimatedSprite2D" instance=ExtResource("5_d8vd7")]
+position = Vector2(-140, -10.000001)
+scale = Vector2(1, 1.0000001)
+collision_layer = 2
+connected_scene = "dragonbattlescene"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+light_mask = 2
+position = Vector2(142, 15.5)
+shape = SubResource("RectangleShape2D_3yqyl")

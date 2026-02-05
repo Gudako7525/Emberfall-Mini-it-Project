@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://du0m8glfcfoh3"]
+
+[ext_resource type="Script" uid="uid://ktuywljxmgx4" path="res://ending.gd" id="1_iggq8"]
+[ext_resource type="Texture2D" uid="uid://dcgkbl0e00d3g" path="res://Gemini_Generated_Image_fo0kzfo0kzfo0kzf.jpg" id="2_iggq8"]
+[ext_resource type="AudioStream" uid="uid://dvckmpto6yuas" path="res://ribhavagrawal-you-lose-game-sound-230514.mp3" id="3_iggq8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhts7"]
+texture = ExtResource("2_iggq8")
+modulate_color = Color(0.7914878, 0.67873347, 0.6094416, 1)
+
+[node name="main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iggq8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rhts7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = 215.0
+offset_right = 312.75
+offset_bottom = 492.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9123715, 0.872931)
+theme_override_constants/separation = 13
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Retry"
+text_overrun_behavior = 3
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iggq8")
+volume_db = -1.542
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_settings_pressed"]

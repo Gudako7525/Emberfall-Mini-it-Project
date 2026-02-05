@@ -1,0 +1,194 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb1453330xosr"]
+
+[ext_resource type="Script" uid="uid://cjux38mxsj7km" path="res://dragonbattlescene.gd" id="1_e5cav"]
+[ext_resource type="Texture2D" uid="uid://bmdgxpiiaq653" path="res://c50a18008bf3f9aade4d1b6bb5cc5aea.jpg" id="2_gkc1x"]
+[ext_resource type="Texture2D" uid="uid://cy86vxmqkfcd4" path="res://Small-8-Direction-Characters_by_AxulArt.png" id="3_dpbmb"]
+[ext_resource type="Texture2D" uid="uid://bplvcj1ve5cc3" path="res://emberfall/dragon.png" id="4_e5cav"]
+[ext_resource type="AudioStream" uid="uid://c0f2d4ret04lv" path="res://draconic Charge (1).mp3" id="5_gkc1x"]
+
+[sub_resource type="Animation" id="Animation_6o8g5"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Battlescene/Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.26, 0.34, 0.41, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-46.666664, -102.57426), Vector2(-66.25001, -117.22772), Vector2(-64.99999, -85.544556), Vector2(-35.833332, -125.54455), Vector2(-28.333332, -102.97029), Vector2(-72.5, -110.09901), Vector2(-50.833336, -97.82178)]
+}
+
+[sub_resource type="Animation" id="Animation_dpbmb"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Battlescene/Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.105449334, 0.17574888, 0.25776505, 0.39836416, 0.4803803),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-46.666664, -102.57426), Vector2(-63.749996, -95.44554), Vector2(-45.41667, -127.1287), Vector2(-42.083336, -91.08911), Vector2(-19.583336, -106.53465), Vector2(-46.666664, -99.40594)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjkl8"]
+_data = {
+&"RESET": SubResource("Animation_6o8g5"),
+&"shake": SubResource("Animation_dpbmb")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-367, -130)
+scale = Vector2(6.01, 6.01)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Battlescene" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 118.0
+offset_top = 115.0
+offset_right = 158.0
+offset_bottom = 155.0
+scale = Vector2(2.4, 2.525)
+size_flags_horizontal = 3
+size_flags_vertical = 6
+script = ExtResource("1_e5cav")
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Battlescene"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4395832
+anchor_top = 0.572525
+anchor_right = 22.139585
+anchor_bottom = 14.022527
+offset_left = -64.24999
+offset_top = -125.47526
+offset_right = -64.25012
+offset_bottom = -125.47519
+scale = Vector2(0.925, 1.045)
+texture = ExtResource("2_gkc1x")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
+position = Vector2(144.59459, 337.6759)
+scale = Vector2(5.1093736, 4.535714)
+texture = ExtResource("3_dpbmb")
+hframes = 8
+vframes = 12
+frame = 49
+
+[node name="Dragon" type="Sprite2D" parent="CanvasLayer/Battlescene/Background"]
+position = Vector2(612.1622, 210.33687)
+scale = Vector2(3.5468752, 3.3084738)
+texture = ExtResource("4_e5cav")
+vframes = 3
+frame = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 358.0
+offset_right = 868.0
+offset_bottom = 487.0
+
+[node name="AttackButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 46.0
+offset_right = 506.0
+offset_bottom = 83.0
+text = "Attack"
+
+[node name="FleeButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 83.0
+offset_right = 508.0
+offset_bottom = 129.0
+text = "Flee
+"
+
+[node name="HealButton" type="Button" parent="CanvasLayer/Battlescene/Background/Panel"]
+layout_mode = 0
+offset_left = 330.0
+offset_right = 508.0
+offset_bottom = 46.0
+text = "Heal"
+
+[node name="Label" type="Label" parent="CanvasLayer/Battlescene/Background/Panel"]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 322.0
+offset_bottom = 129.0
+text = "The Dragon has APPEARED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 849.0
+offset_top = 626.0
+offset_right = 849.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Battlescene/Background"]
+
+[node name="PlayerHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+modulate = Color(0.8392157, 0, 0.08627451, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+offset_left = 67.11712
+offset_top = 398.6925
+offset_right = 219.36113
+offset_bottom = 425.6925
+value = 100.0
+show_percentage = false
+
+[node name="DragonHPBar" type="ProgressBar" parent="CanvasLayer/Battlescene/Background"]
+modulate = Color(0.8392157, 0, 0.08627451, 1)
+layout_mode = 0
+offset_left = 30.833328
+offset_top = 62.574245
+offset_right = 846.6666
+offset_bottom = 81.58415
+max_value = 250.0
+value = 250.0
+show_percentage = false
+
+[node name="PotionLabel" type="Label" parent="CanvasLayer/Battlescene/Background"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 334.0
+offset_right = 861.0
+offset_bottom = 357.0
+text = "Potion: 0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gkc1x")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qjkl8")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/AttackButton" to="CanvasLayer/Battlescene" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Battlescene/Background/Panel/HealButton" to="CanvasLayer/Battlescene" method="_on_heal_button_pressed"]

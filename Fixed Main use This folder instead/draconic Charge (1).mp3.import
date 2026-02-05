@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0f2d4ret04lv"
+path="res://.godot/imported/draconic Charge (1).mp3-1ff6567e90752a26553539cd94e70c9f.mp3str"
+
+[deps]
+
+source_file="res://draconic Charge (1).mp3"
+dest_files=["res://.godot/imported/draconic Charge (1).mp3-1ff6567e90752a26553539cd94e70c9f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

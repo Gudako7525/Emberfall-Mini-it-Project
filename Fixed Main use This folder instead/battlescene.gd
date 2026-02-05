@@ -137,9 +137,11 @@ func execute_enemy_heal():
 	finish_enemy_turn()
 
 func finish_enemy_turn():
-	# to end the enemy turn and give it back to the player
+	# check if player is dead
 	if player_hp <= 0:
-		$Background/Panel/Label.text = "You were defeated..."
+		$Background/Panel/Label.text = "You were defeated by the Slime..."
+		# This triggers the new animation
+		await animate_player_death()
 	else:
 		await get_tree().create_timer(1.5).timeout
 		is_player_turn = true
@@ -231,3 +233,17 @@ func _on_heal_button_pressed():
 		# You're out of potions 
 		# player can still choose to attack instead.
 		$Background/Panel/Label.text = "You are out of potions!"
+		
+		
+func animate_player_death():
+	var tween = create_tween()
+	var player = $Background/Sprite2D
+	
+	# We use set_parallel so it shrinks AND fades at the same time
+	tween.set_parallel(true) 
+	tween.tween_property(player, "modulate:a", 0.0, 2.0) # Fades alpha to 0
+	tween.tween_property(player, "scale", Vector2(0, 0), 2.0) # Shrinks to nothing
+	
+	# Wait for the 2-second animation to finish
+	await tween.finished
+	player.visible = false
